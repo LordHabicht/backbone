@@ -5,6 +5,7 @@ var TodoItemView = Backbone.View.extend({
 	initialize: function(options){
 		if (!(options && options.model))
 			throw new Error("model is not specified.");
+		this.model.on("change",this.render,this)
 	},
 
 
@@ -14,8 +15,8 @@ var TodoItemView = Backbone.View.extend({
 
     cbClicked:function (e) {
 		console.log($(e.target).prop("checked"));
-		this.model.set("checked",$(e.target).prop("checked"));
-		this.render();
+		this.model.toggle();
+
     },
 
 	render: function(){

@@ -4,3 +4,14 @@ body {
 }
 
 body, p { font-size: 24px; }
+
+
+
+.listItem {
+	list-style-type: none;
+}
+
+.itemChecked  {
+	text-decoration: line-through;
+}
+
