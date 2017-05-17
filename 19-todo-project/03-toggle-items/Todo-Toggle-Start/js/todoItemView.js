@@ -20,16 +20,13 @@ var TodoItemView = Backbone.View.extend({
     },
 
 	render: function(){
-		var checkedClass;
+
 		var html;
-		if(this.model.get("checked") == true ){
-            checkedClass = "itemChecked"
-            html = "<input type = 'checkbox' class='checkbox' checked>" + "<span class='"+checkedClass+"'>" +  this.model.escape("description") + "</span>";
-		}
-		else {
-            checkedClass = "";
-            html = "<input type = 'checkbox' class='checkbox'>" + "<span class='"+checkedClass+"'>" +  this.model.escape("description") + "</span>";
-		}
+
+		var checked = (this.model.get("checked") == true ) ? "checked" : "";
+		this.$el.toggleClass("listItemChecked",(this.model.get("checked") == true ));
+		html = "<input type = 'checkbox' class='checkbox' "+checked+">" + "<span class='item'>" +  this.model.escape("description") + "</span>";
+
 
 		this.$el.html(html);
 
