@@ -18,6 +18,7 @@ var TodoItemsView = Backbone.View.extend({
 
 	onAddTodoItem: function(todoItem){
 		var view = new TodoItemView({ model: todoItem });
+
 		this.$el.append(view.render().$el);
 	},
 
